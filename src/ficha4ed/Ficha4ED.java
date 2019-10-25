@@ -22,7 +22,7 @@ public class Ficha4ED {
 
         LinkedQueue lista = new LinkedQueue();
 
-        int escolha = 4;
+        int escolha = 9;
 
         switch (escolha) {
             case 0:
@@ -88,6 +88,28 @@ public class Ficha4ED {
 
                 System.out.println(lista.toString());
                 break;
+                
+            case 6:
+                //Teste para verificar se a lista esta vazia
+                System.out.println(lista.isEmpty());
+                break;
+                
+            case 7: 
+                //Teste para verificar se a lista esta vazia
+                lista.enqueue(1);
+                System.out.println(lista.isEmpty());
+                break;
+                
+            case 8:
+                //Teste size com lista Vazia
+                System.out.println(lista.size());
+                break;
+                
+            case 9:
+                //Teste size com elementos na lista
+                lista.enqueue(1);
+                lista.enqueue(2);
+                System.out.println(lista.size());
         }
     }
 
