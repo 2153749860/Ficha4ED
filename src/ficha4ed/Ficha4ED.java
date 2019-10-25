@@ -16,6 +16,17 @@ public class Ficha4ED {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        LinkedQueue lista = new LinkedQueue();
+        
+        int escolha = 0;
+        
+        switch(escolha){
+            case 0: 
+                lista.enqueue(1);
+                lista.enqueue(2);
+                System.out.println(lista.toString());
+        }
     }
     
 }
