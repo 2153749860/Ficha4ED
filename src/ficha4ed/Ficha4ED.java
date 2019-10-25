@@ -22,7 +22,7 @@ public class Ficha4ED {
 
         LinkedQueue lista = new LinkedQueue();
 
-        int escolha = 3;
+        int escolha = 4;
 
         switch (escolha) {
             case 0:
@@ -48,8 +48,8 @@ public class Ficha4ED {
                 }
                 System.out.println(lista.toString());
                 break;
-                
-            case 3: 
+
+            case 3:
                 //Teste remover com varios elementos na lista
                 try {
                     lista.enqueue(1);
@@ -60,6 +60,32 @@ public class Ficha4ED {
                 } catch (EmptyCollectionException2 ex) {
                     Logger.getLogger(Ficha4ED.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                System.out.println(lista.toString());
+                break;
+            case 4:
+                //Teste retornar front da lista
+                lista.enqueue(1);
+                lista.enqueue(2);
+                lista.enqueue(3);
+                lista.enqueue(4);
+
+                try {
+                    System.out.println("Primeiro: " + lista.first());
+                } catch (EmptyCollectionException2 ex) {
+                    Logger.getLogger(Ficha4ED.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                System.out.println(lista.toString());
+                break;
+            case 5:
+
+                try {
+                    //Teste retornar primeiro da lista vazia
+                    System.out.println(lista.first());
+                } catch (EmptyCollectionException2 ex) {
+                    Logger.getLogger(Ficha4ED.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 System.out.println(lista.toString());
                 break;
         }
