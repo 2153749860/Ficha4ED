@@ -9,8 +9,8 @@ package ficha4ed;
  *
  * @author tiago
  */
-public class LinkedQueue<T> implements QueueADT<T>{
-    
+public class LinkedQueue<T> implements QueueADT<T> {
+
     private int count;
     private LinearNode<T> front;
     private LinearNode<T> rear;
@@ -20,15 +20,14 @@ public class LinkedQueue<T> implements QueueADT<T>{
         this.front = null;
         this.rear = null;
     }
-    
 
     @Override
     public void enqueue(T element) {
         LinearNode<T> newNode = new LinearNode<>(element);
-        if(this.count == 0){
+        if (this.count == 0) {
             this.front = newNode;
             this.rear = newNode;
-        } else{
+        } else {
             this.rear.setNext(newNode);
             this.rear = newNode;
         }
@@ -36,8 +35,17 @@ public class LinkedQueue<T> implements QueueADT<T>{
     }
 
     @Override
-    public T dequeue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public T dequeue() throws EmptyCollectionException2{
+        if (this.count == 0) {
+            throw new EmptyCollectionException2("Lista Vazia!");
+        } else {
+            LinearNode<T> current = new LinearNode<>();
+            current = this.front;
+            this.front = this.front.getNext();
+            current.setNext(null);
+            this.count--;
+            return current.getElement();
+        }
     }
 
     @Override
@@ -57,12 +65,20 @@ public class LinkedQueue<T> implements QueueADT<T>{
 
     @Override
     public String toString() {
-        LinearNode<T> current = this.front;
+        if(this.count == 0){
+            return "Lista Vazia";
+        } else{
+            LinearNode<T> current = this.front;
         StringBuilder str = new StringBuilder();
-        str.append("Front: ");str.append(this.front.getElement());str.append("\n");
-        str.append("Rear: ");str.append(this.rear.getElement());str.append("\n");
-        str.append("Tamanho: ");str.append(this.count);str.append("\n");
-        
+        str.append("Front: ");
+        str.append(this.front.getElement());
+        str.append("\n");
+        str.append("Rear: ");
+        str.append(this.rear.getElement());
+        str.append("\n");
+        str.append("Tamanho: ");
+        str.append(this.count);
+        str.append("\n");
 
         while (current != null) {
             str.append(current.getElement());
@@ -70,11 +86,8 @@ public class LinkedQueue<T> implements QueueADT<T>{
             current = current.getNext();
         }
         return str.toString();
+        }
+    
     }
-    
-    
-    
-    
 
-    
 }

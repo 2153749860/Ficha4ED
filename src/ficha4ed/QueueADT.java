@@ -23,7 +23,7 @@ public interface QueueADT<T> {
      *
      * @return the element at the front of this queue
      */
-    public T dequeue();
+    public T dequeue() throws EmptyCollectionException2;
 
     /**
      * Returns without removing the element at the front of this queue.
